@@ -11,6 +11,7 @@ cualquien producto que se quiera poner a la venta, y necesitara sku, nombre,cate
 
 ¿Qué tipos de movimiento de stock existirán?
 entrada,salidas,reservas,rotos y ajuste.(cada modificacion del stock registrara el porque,quien y cuando)
+Las reservas afectan al stock disponible, no al físico; expiran tras 48 horas si no se completan.
 
 ¿Qué condiciones deben cumplirse para recibir un pedido?
 cantidad de producto recibido/solicitado,categoria, proveedor,fecha,importe.
@@ -22,5 +23,6 @@ se crea una linea de devoluciono ajuste incluyendo proveedor, fecha, importe,mot
 el stock no puede ser negativo porque no se puede vender lo que no se tiene (en el frontend del comercio aparecera un mensaje de no disponible añadir a lista de deseos)
 
 ¿Qué información debe registrarse en cada movimiento para poder auditarlo?
+Un pedido puede estar borrador, enviado, parcialmente_recibido, recibido o cancelado.
 cada modificacion del stock registrara el porque (venta,entrada,rotura),quien y cuando.
 cada incorporacion de un pedido (entrada de mercancia) generara un ID unico con el lote de productos que integra
