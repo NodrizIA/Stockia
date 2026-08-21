@@ -1,4 +1,16 @@
-## Producto (es el articulo que se compra y se va a inventariar)
+## Usuario
+
+Representa a una persona con acceso al sistema.
+
+- id
+- nombre
+- email
+- rol
+- creado_en
+
+## Producto
+
+Representa un artículo que se compra, almacena y vende.
 
 - id
 - sku
@@ -6,66 +18,63 @@
 - categoria
 - precio_venta
 - stock_minimo
-- fecha
+- creado_en
 
-## MovimientoStock (accion sobre la cantidad disponible de los articulos)
+## Proveedor
+
+Representa una empresa que suministra productos.
 
 - id
-- producto_id
-- tipo
-- cantidad
-- motivo
-- usuario_id
-- fecha
-
-## Usuario (es el cliente o el admin del almacen que puede modificar el stock)
-
-- usuario_id
-- fecha
-- motivo
-- cantidad
-- producto_id
-- tipo
-
-## Proveedor (son los que tienen las mercancias que registraremos y luego venderemos)
-
-- usuario_id
-- id
-- fecha
-- precio
-- estado
-- producto_id
-- ciudad
-- telefono
+- nombre
 - email
+- telefono
+- ciudad
+- creado_en
 
-## Pedido_compra (datos sobre un pedido que hacemos a los proveedores)
+## PedidoCompra
 
-- usuario_id
-- proveedor
-- fecha
+Representa una compra realizada a un único proveedor.
+
+- id
+- proveedor_id
+- creado_por_usuario_id
+- estado
+- creado_en
+- enviado_en
+- cancelado_en
+
+## LineaPedidoCompra
+
+Representa cada producto solicitado dentro de un pedido.
+
+- id
+- pedido_compra_id
 - producto_id
 - cantidad_solicitada
-- cantidad_entregada
-- precio
-- estado
+- precio_unitario
 
-## Lineapedidocompra (el pedido que nos entrega los proveedores)
+## MovimientoStock
 
-- usuario_id
-- proveedor
+Representa un cambio físico del inventario.
+
+- id
 - producto_id
-- cantidad_solicitada
-- cantidad_entregada
-- precio
-- fecha
-- estado
-
-## ReservaStock (sistema para reservar productos con fecha de caducidad)
-
-- usuario_id
-- producto_id
-- fecha_inicial
-- fecha_limite
-- estado
+- tipo
 - cantidad
+- motivo
+- registrado_por_usuario_id
+- linea_pedido_compra_id (opcional)
+- creado_en
+
+## ReservaStock
+
+Representa unidades apartadas temporalmente, sin alterar el stock físico.
+
+- id
+- producto_id
+- cantidad
+- estado
+- creada_por_usuario_id
+- creada_en
+- expira_en
+- liberada_en (opcional)
